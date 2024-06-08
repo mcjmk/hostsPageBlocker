@@ -14,7 +14,7 @@ def all_possible_urls(urls):
     https_urls = [('https://' + url) for url in urls]
     http_www_urls = [('http://' + url) for url in www_urls]
     https_www_urls = [('https://' + url) for url in www_urls]
-    all_urls = urls + http_urls + https_urls + http_www_urls + https_www_urls
+    all_urls = urls + www_urls + http_urls + https_urls + http_www_urls + https_www_urls
     return all_urls
 
 
