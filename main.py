@@ -1,5 +1,5 @@
 #! python3
-# hostsPageBlocker.py - a simple python script to block Urls on Windows via etc/hosts
+# a simple python script to block Urls on Windows via etc/hosts
 import os
 import sys
 
