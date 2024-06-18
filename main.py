@@ -55,7 +55,7 @@ def main():
         with open(hosts_path, 'a', encoding='utf-8') as hosts_file:
             hosts_file.write('\n')
             for url in all_possible_urls(urls):
-                hosts_file.write('127.0.0.1' + '\t\t' + url + '\n')
+                hosts_file.write('0.0.0.0' + '\t\t' + url + '\n')
         print("URLs has been successfully blocked!")
 
     except (OSError, FileNotFoundError) as e:
