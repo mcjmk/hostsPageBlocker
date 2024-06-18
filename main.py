@@ -20,8 +20,7 @@ def determine_host_path():
         return 'C:\\Windows\\System32\\drivers\\etc\\hosts'
     elif platform.system() == 'Linux':
         return '/etc/hosts'
-    else:
-        raise OSError('Unsupported OS!')
+    raise OSError('Unsupported OS!')
 
 
 def all_possible_urls(urls):
@@ -58,11 +57,12 @@ def main():
                 hosts_file.write('127.0.0.1' + '\t\t' + url + '\n')
         print("URLs has been successfully blocked!")
 
-    except FileNotFoundError as e:
-        print(e)
+    except (OSError, FileNotFoundError) as e:
+        print("Error: {e}")
         sys.exit(1)
-    except OSError as e:
-        print(e)
+
+    except Exception as e:
+        print(f"Unexpected error occurred: {e}")
         sys.exit(1)
 
 
