@@ -16,9 +16,10 @@ def determine_host_path():
     :return:
         str: The file path to the hosts file.
     """
-    if platform.system() == 'Windows':
+    system_name = platform.system()
+    if system_name == 'Windows':
         return 'C:\\Windows\\System32\\drivers\\etc\\hosts'
-    elif platform.system() == 'Linux':
+    if system_name == 'Linux':
         return '/etc/hosts'
     raise OSError('Unsupported OS!')
 
@@ -58,13 +59,8 @@ def main():
         print("URLs has been successfully blocked!")
 
     except (OSError, FileNotFoundError) as e:
-        print("Error: {e}")
+        print(f"Error: {e}")
         sys.exit(1)
-
-    except Exception as e:
-        print(f"Unexpected error occurred: {e}")
-        sys.exit(1)
-
 
 if __name__ == '__main__':
     main()
