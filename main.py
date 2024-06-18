@@ -1,8 +1,12 @@
 #! python3
+<<<<<<<< HEAD:main.py
 # a simple python script to block Urls on Windows via etc/hosts
+========
+# hosts_page_blocker.py - a simple python script to block Urls on Windows via etc/hosts
+
+>>>>>>>> 0fd085084ad366072c97eb033ac4e41753865e42:hosts_page_blocker.py
 import os
 import sys
-
 
 def all_possible_urls(urls):
     """
@@ -30,12 +34,12 @@ def main():
 
     urls = []
     n = int(input("Number of pages to block: "))
-    for i in range(0, n):
+    for _ in range(n):
         urls.append(input("url: "))
 
-    with open(hosts_path, 'a') as hostsFile:
+    with open(hosts_path, 'a', encoding='utf-8') as hosts_file:
         for url in all_possible_urls(urls):
-            hostsFile.write('127.0.0.1' + '\t\t' + url + '\n')
+            hosts_file.write('127.0.0.1' + '\t\t' + url + '\n')
 
 
 if __name__ == '__main__':
