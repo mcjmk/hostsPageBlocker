@@ -1,5 +1,9 @@
 #! python3
-# a simple python script to block access to Urls on your system via etc/hosts
+"""
+This simple Python script allows you to easily block URLs by rerouting them to localhost
+through the addition of rules in the system's hosts file.
+"""
+
 import os
 import sys
 
