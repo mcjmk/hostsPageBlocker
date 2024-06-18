@@ -1,12 +1,8 @@
 #! python3
-<<<<<<<< HEAD:main.py
-# a simple python script to block Urls on Windows via etc/hosts
-========
-# hosts_page_blocker.py - a simple python script to block Urls on Windows via etc/hosts
-
->>>>>>>> 0fd085084ad366072c97eb033ac4e41753865e42:hosts_page_blocker.py
+# a simple python script to block access to Urls on your system via etc/hosts
 import os
 import sys
+
 
 def all_possible_urls(urls):
     """
