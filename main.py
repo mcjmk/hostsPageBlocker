@@ -48,7 +48,14 @@ def main():
             raise FileNotFoundError(f"{hosts_path} doesn't exist!")
 
         urls = []
-        n = int(input("Number of pages to block: "))
+        while True:
+            try:
+                n = int(input("Number of pages to block: "))
+            except ValueError:
+                print("Number of pages must be an integer!")
+            else:
+                break
+        
         for _ in range(n):
             urls.append(input("url: "))
 
