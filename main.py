@@ -5,6 +5,7 @@ the addition of rules in the system's hosts file.
 """
 
 import platform
+import re
 
 
 def get_hosts_path():
@@ -27,8 +28,9 @@ def prompt_for_number_of_pages():
 
 
 def prompt_for_url():
-    """Prompt for a link without prefixes"""
-    return input("Enter URL: ")
+    """Prompt for a link and ensure it doesn't contain unnecessary prefix"""
+    url = input("Enter URL: ").strip()
+    return re.sub(r"^(?:https?://)?(?:www\.)?", "", url)
 
 
 def get_all_possible_urls(urls):
