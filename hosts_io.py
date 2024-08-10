@@ -41,3 +41,10 @@ def list_blocked_pages():
 
 def list_unique_blocked_pages():
     return list(set(list_blocked_pages()))
+
+
+def export_blocked_pages(path=get_desktop_path()):
+    blocked_pages = list_unique_blocked_pages()
+    with open(os.path.join(path, "blocked_pages.txt"), "w") as file:
+        for page in blocked_pages:
+            file.write(f"{page} \n")
