@@ -48,12 +48,23 @@ def get_all_possible_urls(urls):
     )
 
 
+def ipv4_block_entry(url):
+    """Generate an IPv4 block entry for a given URL."""
+    return "0.0.0.0" + "\t\t" + url + "\n"
+
+
+def ipv6_block_entry(url):
+    """Generate an IPv6 block entry for a given URL."""
+    return "::1" + "\t\t" + url + "\n"
+
+
 def append_to_hosts(urls, hosts_path):
     """Append URLs to the hosts file to block them."""
     with open(hosts_path, "a", encoding="utf-8") as hosts_file:
         hosts_file.write("\n")
         for url in urls:
-            hosts_file.write("0.0.0.0" + "\t\t" + url + "\n")
+            hosts_file.write(ipv4_block_entry(url))
+            hosts_file.write(ipv6_block_entry(url))
     print("URLs have been successfully blocked!")
 
 
