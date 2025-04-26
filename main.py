@@ -8,9 +8,14 @@ import platform
 import re
 
 
+def get_os_name():
+    """Get the current OS name."""
+    return platform.system()
+
+
 def get_hosts_path():
     """Determine the path to the hosts based on the current OS."""
-    system_name = platform.system()
+    system_name = get_os_name()
     if system_name == "Windows":
         return "C:\\Windows\\System32\\drivers\\etc\\hosts"
     if system_name == "Linux":
