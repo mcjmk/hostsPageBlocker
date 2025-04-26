@@ -8,6 +8,7 @@ Field tested during university! 🔥
 ### Prerequisites
 - Python 3.6 or newer
 - Admin/root privileges (required to modify hosts file)
+- Windows or Linux
 
 ## Getting started:
 1. Clone the repo
