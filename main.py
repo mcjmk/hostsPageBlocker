@@ -68,8 +68,25 @@ def append_to_hosts(urls, hosts_path):
     print("URLs have been successfully blocked!")
 
 
+def check_is_sudo(system_name):
+    if system_name == "Linux":
+        import os
+
+        return os.geteuid() == 0
+
+    if system_name == "Windows":
+        import ctypes
+
+        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+
+
 def main():
     """Prompt for urls and append them to the hosts file to block them"""
+
+    system_name = get_os_name()
+    if not check_is_sudo(system_name):
+        exit("User does NOT HAVE SUDO")
+
     hosts_path = get_hosts_path()
     n = prompt_for_number_of_pages()
     urls = []
